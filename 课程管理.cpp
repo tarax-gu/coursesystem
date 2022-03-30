@@ -48,6 +48,7 @@ private:
 istream &read_homework(istream &is,homework &item)
 {
     is >> item.workname >> item.flag;
+    return is;
 }//将文件中的作业名称和标识符信息存入作业类的数组中
 istream &read_course(istream &is, course &item )
 {
@@ -62,7 +63,8 @@ istream &read_course(istream &is, course &item )
        >> item.exam_week >> item.exam_start_time.weekday >> item.exam_start_time.hour >> item.exam_start_time.minute
        >> item.exam_end_time.hour >> item.exam_end_time.minute//输入考试时间
        >> item.exam_loc.x >> item.exam_loc.y >> item.exam_loc.position;//输入考试地点的坐标和名称
-    ifstream in;
+    item.homework_filename += ".txt"; 
+	ifstream in;
     in.open(item.homework_filename.c_str());
     int i = 0;
     while(read_homework(in,item.course_work[i]))
@@ -81,28 +83,30 @@ ostream &print_course(ostream &os,course &item)
        << "\t课程群：" << item.course_group 
        << "\t考试时间：" <<item.exam_week << "周\t" << item.exam_start_time.weekday << " " << item.exam_start_time.hour << ":" << item.exam_start_time.minute
        << "-" << item.exam_end_time.hour << ":" << item.exam_end_time.minute
-       << "\t考试地点：" << item.exam_loc.position;
+       << "\t考试地点：" << item.exam_loc.position; 
     int i = 0;
     while(item.course_work[i].flag!=-1)
     {
-        os << "作业名称：" << item.course_work[i].workname;
+        os << "作业名称：" << item.course_work[i].workname << " "
+           << "提交状态：";
         if(item.course_work[i].flag==1)
         {
-            os << "已交";
+            os << "已交\t";
         }
         else
         {
-            os << "未交";
+            os << "未交\t";
         }
         i++;
     }//将作业的提交情况输出
+    os << endl; 
     return os;
 }//输出课程的各项信息
 int main()
 {
     course item;
-    ifstream in("courseinformation1.txt");
+    ifstream in("courseinformation.txt");
     read_course(in, item);
     in.close();
     print_course(cout, item);
-};
+}
