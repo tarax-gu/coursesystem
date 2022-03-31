@@ -5,13 +5,13 @@ course item[1000];
 int main()
 {
 	int m;
-	cout<<"²âÊÔ£ºÊäÈë0½áÊø£¬ÊäÈë1²éÕÒ£¬ÊäÈë2ÅÅÐò"<<endl;
+	cout<<"æµ‹è¯•ï¼šè¾“å…¥0ç»“æŸï¼Œè¾“å…¥1æŸ¥æ‰¾ï¼Œè¾“å…¥2æŽ’åº"<<endl;
 	cin >> m;
 	while(m != 0)
 	{
 	   if( m == 1)
 	   {
-	   	cout<<"ÇëÊäÈë¿Î³ÌÃû³Æ:\n"; 
+	   	cout<<"è¯·è¾“å…¥è¯¾ç¨‹åç§°:\n"; 
 	   	search();
 		}	
 		else if( m == 2)
@@ -19,7 +19,7 @@ int main()
 			
 			
 			int k,total = 0;
-			cout<<"ÊäÈëÅÅÐòÖÖÀà£º1Ãû³Æ£¬2ÉÏ¿ÎµØµã\n";
+			cout<<"è¾“å…¥æŽ’åºç§ç±»ï¼š1åç§°ï¼Œ2ä¸Šè¯¾åœ°ç‚¹\n";
 			cin >> k;
 			ifstream in("courseinformation.txt");
 			while(read_course(in, item[total]))total++;
@@ -31,7 +31,7 @@ int main()
 				cout<<endl;
 			}
 		}
-	   cout<<"²âÊÔ£ºÊäÈë1"<<endl; 	
+	   cout<<"æµ‹è¯•ï¼šè¾“å…¥0ç»“æŸï¼Œè¾“å…¥1æŸ¥æ‰¾ï¼Œè¾“å…¥2æŽ’åº"<<endl; 	
 	   cin >> m;	
 	} 
     
