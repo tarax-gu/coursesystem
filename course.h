@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 using namespace std;
+void upload_data(string,string,int,int,int);
 struct time
 {
     string weekday,hour, minute;
@@ -19,6 +20,7 @@ struct homework
 };//定义一个类，储存作业的信息,flag为1表示已交，为0表示未交 
 struct course_data
 {
+	int flag;//一个标识位，若为0则为旧版 
     int up_day, up_month, up_year;
     string dataname;
 };//定义一个类，储存课程资料的信息
@@ -58,6 +60,7 @@ istream &read_homework(istream &is,homework &item)
 }//将文件中的作业名称和标识符信息存入作业类的数组中
 istream &read_coursedata(istream &is,course_data &item)
 {
+	item.flag=1;//将课程资料的新旧标识为置为新 
     is >> item.dataname >> item.up_year >> item.up_month >> item.up_day;
     return is;
 }//将文件中的课程资料名称和上传时间存入资料类的数组中
@@ -89,6 +92,12 @@ istream &read_course(istream &is, course &item )
     i = 0;
     while(read_coursedata(in,item.data[i]))
     {
+    	int j;
+		for(j = 0;j < i && item.data[j].dataname.compare(item.data[i].dataname) != 0;j++);
+		if(j != i && i != 0)
+		{
+			item.data[j].flag = 0; 
+		}//若资料中出现同名旧资料则将其标识位置为0
         i++;
     }
     in.close();
@@ -123,9 +132,12 @@ ostream &print_course(ostream &os,course &item)
     i = 0;
     while(item.data[i].up_year!=-1)
     {
-        os << "课程资料：" << item.data[i].dataname << " 上传时间："
-           << item.data[i].up_year << "/" << item.data[i].up_month << "/" << item.data[i].up_day << '\t';
-        i++;
+    	if(item.data[i].flag != 0)
+    	{
+    		os << "课程资料：" << item.data[i].dataname << " 上传时间："
+           	   << item.data[i].up_year << "/" << item.data[i].up_month << "/" << item.data[i].up_day << "\t";
+		}//若新旧标识位为新则输出资料 
+		i++;
     }//将课程资料的情况输出
     os << endl; 
     return os;
