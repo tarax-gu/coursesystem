@@ -1,4 +1,0 @@
-chapter1 1
-chapter2 1
-chapter3 1
-chapter4 1
