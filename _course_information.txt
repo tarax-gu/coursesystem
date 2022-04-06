@@ -1,30 +1,30 @@
 java
-2 1 N107 shahe
-Tuesday 8 00 9 35
+2 1 N107 沙河
+星期二 8 00 9 35
 zhy
 1 32
 java_coursedatalist
 java_homeworklist
 33335555987
-17 Monday 9 00 11 00
+17 星期一 9 00 11 00
 3 2 N105 
 c++
-3 1 N221 shahe
-Monday 9 50 11 25
+3 1 N221 沙河
+星期一 9 50 11 25
 whz
 3 32
 c++_coursedatalist
 c++_homeworklist
 546465465
-18 Tuesday 15 00 17 00
+18 星期四 15 00 17 00
 6 6 S108 
 python
-5 5 S305 shahe
-Wednesday 13 00 14 35
+5 5 S305 沙河
+星期三 13 00 14 35
 wc
 5 32
 python_coursedatalist
 python_homeworklist
 10001225
-17 Thursday 19 00 21 00
+17 星期四 19 00 21 00
 7 1 N401
