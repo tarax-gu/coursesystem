@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/icon1.png</file>
+        <file>image/user.png</file>
+        <file>image/benbu.png</file>
+        <file>image/shahe.png</file>
+        <file>image/accelerate.png</file>
+        <file>image/start.png</file>
+        <file>image/stop.png</file>
+    </qresource>
+</RCC>
